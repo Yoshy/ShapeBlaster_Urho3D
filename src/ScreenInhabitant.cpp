@@ -33,7 +33,5 @@ void ScreenInhabitant::Update(float timeStep)
 bool ScreenInhabitant::IsOutOfScreen()
 {
 	Vector2 position{ node_->GetPosition2D() };
-	if (position.x_ > halfWidth_ || position.x_ < -halfWidth_ || position.y_ > halfHeight_ || position.y_ < -halfHeight_)
-		return true;
-	return false;
+	return position.x_ > halfWidth_ || position.x_ < -halfWidth_ || position.y_ > halfHeight_ || position.y_ < -halfHeight_;
 }

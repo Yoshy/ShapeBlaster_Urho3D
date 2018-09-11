@@ -178,7 +178,7 @@ void ShapeBlaster::HandlePostRenderUpdate(StringHash eventType, VariantMap& even
 
 void ShapeBlaster::HandleNodeBeginContact2D(StringHash eventType, VariantMap& eventData)
 {
-	Node* myNode{ static_cast<RigidBody2D*>(eventData[NodeBeginContact2D::P_BODY].GetPtr())->GetNode() };
+	Node* myNode{ dynamic_cast<RigidBody2D*>(eventData[NodeBeginContact2D::P_BODY].GetPtr())->GetNode() };
 	const String& myName{ myNode->GetName() };
 	Node* other = (Node*)(eventData[NodeBeginContact2D::P_OTHERNODE].GetPtr());
 	if (myName == String{ PLAYER_NODE_NAME })
@@ -389,7 +389,6 @@ Vector2 ShapeBlaster::GetAimDirection()
 	if (!playerNode)
 		return Vector2();
 
-	Input* input{ GetSubsystem<Input>() };
 	Vector2 mousePosition{ Vector2(GetSubsystem<UI>()->GetCursorPosition()) }; // viewport coordinates
 	mousePosition = Vector2(mousePosition.x_ * PIXEL_SIZE - halfWidth_, -mousePosition.y_ * PIXEL_SIZE + halfHeight_);
 	Vector2 playerPosition{ playerNode->GetPosition2D() };

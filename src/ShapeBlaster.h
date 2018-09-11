@@ -12,10 +12,10 @@ class ShapeBlaster : public Application
 {
 	URHO3D_OBJECT(ShapeBlaster, Application);
 public:
-	ShapeBlaster(Context * context);
-	virtual void Setup();
-	virtual void Start();
-	virtual void Stop();
+	explicit ShapeBlaster(Context * context);
+	void Setup() final;
+	void Start() final;
+	void Stop() final;
 	void HandleUpdate(StringHash eventType, VariantMap& eventData);
 	void HandleKeyDown(StringHash eventType, VariantMap& eventData);
 	void HandleMouseButtons(StringHash eventType, VariantMap& eventData);

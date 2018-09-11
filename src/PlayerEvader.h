@@ -9,7 +9,7 @@ class PlayerEvader : public LogicComponent
 	URHO3D_OBJECT(PlayerEvader, LogicComponent);
 
 public:
-	PlayerEvader(Context* context);
+	explicit PlayerEvader(Context* context);
 	/// Handle scene update. Called by LogicComponent base class.
-	virtual void Update(float timeStep);
+	void Update(float timeStep) final;
 };

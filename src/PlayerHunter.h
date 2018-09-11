@@ -9,11 +9,11 @@ class PlayerHunter : public LogicComponent
 	URHO3D_OBJECT(PlayerHunter, LogicComponent);
 
 public:
-	PlayerHunter(Context* context);
+	explicit PlayerHunter(Context* context);
 	/// Handle scene update. Called by LogicComponent base class.
-	virtual void Update(float timeStep);
+	void Update(float timeStep) final;
 
 private:
 	Color fadeColor(Color from, Color to, float amount);
-	float PlayerHunter::fadeComponent(float from, float to, float amount);
+	float fadeComponent(float from, float to, float amount);
 };

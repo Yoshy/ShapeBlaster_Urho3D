@@ -22,8 +22,8 @@ class TimerEvents : public Object
 	URHO3D_OBJECT(TimerEvents, Object);
 
 public:
-	TimerEvents(Context* context);
-	virtual ~TimerEvents();
+	explicit TimerEvents(Context* context);
+	~TimerEvents() final;
 	void AddTimerEvent(StringHash id, float timeInterval, unsigned int repeats);
 
 private:

@@ -9,7 +9,7 @@ class Pulsar : public LogicComponent
 	URHO3D_OBJECT(Pulsar, LogicComponent);
 
 public:
-	Pulsar(Context* context);
+	explicit Pulsar(Context* context);
 	/// Handle scene update. Called by LogicComponent base class.
-	virtual void Update(float timeStep);
+	void Update(float timeStep) final;
 };

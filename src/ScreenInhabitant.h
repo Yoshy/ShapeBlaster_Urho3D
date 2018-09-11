@@ -9,10 +9,10 @@ class ScreenInhabitant : public LogicComponent
 	URHO3D_OBJECT(ScreenInhabitant, LogicComponent);
 
 public:
-	ScreenInhabitant(Context* context);
-	virtual void DelayedStart();
+	explicit ScreenInhabitant(Context* context);
+	void DelayedStart() final;
 	/// Handle scene update. Called by LogicComponent base class.
-	virtual void Update(float timeStep);
+	void Update(float timeStep) final;
 
 private:
 	float halfWidth_;

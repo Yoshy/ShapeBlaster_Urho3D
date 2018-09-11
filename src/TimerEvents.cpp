@@ -33,9 +33,9 @@ void TimerEvents::Update(StringHash eventType, VariantMap& eventData)
 		et.timeRemain = et.timeRemain - eventData[Update::P_TIMESTEP].GetFloat();
 		if (et.timeRemain <= 0)
 		{
-			VariantMap& eventData = GetEventDataMap();
-			eventData[TimerEvent::P_TIMER_ID] = et.id;
-			SendEvent(E_TIMEREVENT, eventData);
+			VariantMap& timerEventData { GetEventDataMap() };
+			timerEventData[TimerEvent::P_TIMER_ID] = et.id;
+			SendEvent(E_TIMEREVENT, timerEventData);
 			et.timeRemain = et.timeInterval;
 			--et.numRepeats;
 			if (et.numRepeats == 0) // That was last repeat, delete timer

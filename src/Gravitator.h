@@ -9,7 +9,7 @@ class Gravitator : public LogicComponent
 	URHO3D_OBJECT(Gravitator, LogicComponent);
 
 public:
-	Gravitator(Context* context);
+	explicit Gravitator(Context* context);
 	/// Handle scene update. Called by LogicComponent base class.
-	virtual void Update(float timeStep);
+	void Update(float timeStep) final;
 };
